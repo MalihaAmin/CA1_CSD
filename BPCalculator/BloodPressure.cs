@@ -49,11 +49,6 @@ namespace BPCalculator
                 {
                     return BPCategory.High;
                 }
-                else
-                {
-
-                    return BPCategory.NotValid;
-                }
             }
         }
     }
