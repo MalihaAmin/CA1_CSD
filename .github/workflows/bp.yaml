@@ -47,7 +47,7 @@ jobs:
         with:
           artifact: ''
           name: MS Tests                  
-          path: '**.trx'
+          path: 'bmiUnitTestProject/TestResults/*.trx'
           reporter: 'dotnet-trx' 
           
       - name: Publish
