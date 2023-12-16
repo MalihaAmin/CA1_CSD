@@ -50,7 +50,7 @@ jobs:
           path: "**/*.trx"
           reporter: 'dotnet-trx' 
           fail-on-error: true
-          searchFolder: '$(Agent.TempDirectory)'
+          working-directory : /
           
       - name: Publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
