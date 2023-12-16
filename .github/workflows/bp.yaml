@@ -25,15 +25,15 @@ jobs:
         
        
        #install dependencies
-      - name: Install dependencies      
-        run: dotnet restore
+      #- name: Install dependencies      
+       # run: dotnet restore
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
         
         
       - name: Run unit tests
-        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore  --logger "trx;LogFileName=test-results.trx" --collect "Code coverage" -l:trx --verbosity detailed
+        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx --verbosity detailed
      
       
       - name: List contents of the directory
@@ -50,7 +50,6 @@ jobs:
           path: "**/*.trx"
           reporter: 'dotnet-trx' 
           fail-on-error: true
-          working-directory : /
           
       - name: Publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
