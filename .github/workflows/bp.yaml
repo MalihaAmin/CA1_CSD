@@ -36,10 +36,6 @@ jobs:
         run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" --logger trx --verbosity detailed
      
       
-      - name: List contents of the directory
-        run: ls -alh
-
-      
         #publish unit test results
       - name: Publish Unit Test Results
         uses: dorny/test-reporter@v1
