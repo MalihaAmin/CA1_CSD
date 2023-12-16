@@ -1,10 +1,10 @@
-using NUnit.Framework;
+using Xunit;
 
-[TestFixture]
+[Collection("BloodPressureTests")]
 public class BloodPressureTests
 {
     // Test for low blood pressure category when systolic is below 90 and diastolic is below 60
-    [Test]
+    [Fact]
     public void Category_ShouldBeLow_WhenSystolicBelow90AndDiastolicBelow60()
     {
         // Arrange
@@ -14,11 +14,11 @@ public class BloodPressureTests
         BPCategory category = bloodPressure.Category;
 
         // Assert
-        Assert.AreEqual(BPCategory.Low, category);
+        Assert.Equal(BPCategory.Low, category);
     }
 
     // Test for ideal blood pressure category when systolic is between 70 and 119 and diastolic is between 40 and 79
-    [Test]
+    [Fact]
     public void Category_ShouldBeIdeal_WhenSystolicBetween70And119AndDiastolicBetween40And79()
     {
         // Arrange
@@ -28,11 +28,11 @@ public class BloodPressureTests
         BPCategory category = bloodPressure.Category;
 
         // Assert
-        Assert.AreEqual(BPCategory.Ideal, category);
+        Assert.Equal(BPCategory.Ideal, category);
     }
 
     // Test for pre-high blood pressure category based on specific systolic and diastolic ranges
-    [Test]
+    [Fact]
     public void Category_ShouldBePreHigh_WhenSystolicBetween120And139AndDiastolicBelow80OrSystolicBetween81And139AndDiastolicBetween80And89()
     {
         // Arrange
@@ -42,11 +42,11 @@ public class BloodPressureTests
         BPCategory category = bloodPressure.Category;
 
         // Assert
-        Assert.AreEqual(BPCategory.PreHigh, category);
+        Assert.Equal(BPCategory.PreHigh, category);
     }
 
     // Test for high blood pressure category when systolic is between 140 and 190 or diastolic is between 90 and 100
-    [Test]
+    [Fact]
     public void Category_ShouldBeHigh_WhenSystolicBetween140And190OrDiastolicBetween90And100()
     {
         // Arrange
@@ -56,11 +56,11 @@ public class BloodPressureTests
         BPCategory category = bloodPressure.Category;
 
         // Assert
-        Assert.AreEqual(BPCategory.High, category);
+        Assert.Equal(BPCategory.High, category);
     }
 
     // Test for not valid blood pressure category when no other category matched
-    [Test]
+    [Fact]
     public void Category_ShouldBeNotValid_WhenNoOtherCategoryMatched()
     {
         // Arrange
@@ -70,6 +70,6 @@ public class BloodPressureTests
         BPCategory category = bloodPressure.Category;
 
         // Assert
-        Assert.AreEqual(BPCategory.NotValid, category);
+        Assert.Equal(BPCategory.NotValid, category);
     }
 }
