@@ -1,10 +1,11 @@
 using BPCalculator;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Xunit;
 
-namespace Unit_test
+namespace bmiUnitTestProject
 {
 
-    public class UnitTest
+    public class UnitTest1
     {
         public BloodPressure BP;
 
