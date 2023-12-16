@@ -47,9 +47,10 @@ jobs:
         with:
           artifact: ''
           name: MS Tests                  
-          path: "**/test-results.trx"
+          path: "**/*.trx"
           reporter: 'dotnet-trx' 
           fail-on-error: true
+          searchFolder: '$(Agent.TempDirectory)'
           
       - name: Publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
