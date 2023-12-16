@@ -1,0 +1,55 @@
+name: Build and deploy ASP.Net Core app to Azure Web App - bpprojectmaliha
+env:
+  URI: https://bpprojectmaliha.azurewebsites.net
+  AZURE_WEBAPP_PACKAGE_PATH: 'publish'
+  AZURE_WEBAPP_NAME: bpprojectmaliha
+on:
+  push:
+    branches: 
+      - main
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  build:                              #build job
+    runs-on: ubuntu-latest            #running on ubuntu
+
+    steps:
+      - uses: actions/checkout@v2     #checking out code
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+          include-prerelease: true
+       
+       #install dependencies
+      - name: Install dependencies      
+        run: dotnet restore
+
+      - name: Build with dotnet
+        run: dotnet build --configuration Release
+        
+        
+      - name: Run unit tests
+        run: dotnet test Unit_test/UnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx
+     
+        #publish unit test results
+      - name: Publish Unit Test Results
+        uses: dorny/test-reporter@v1
+        with:
+          artifact: ''
+          name: MS Tests                  
+          path: '**.trx'
+          reporter: 'dotnet-trx' 
+          
+      - name: dotnet publish
+        run: dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp
+
+      - name: Run Azure webapp deploy action using publish profile credentials
+        uses: actions/webapp-deploy@v2
+	with:
+	  app-name: ${{ env.AZURE_WEBAPP_NAME }}
+	  publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+	  package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
