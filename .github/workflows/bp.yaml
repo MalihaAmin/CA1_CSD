@@ -33,7 +33,7 @@ jobs:
         
         
       - name: Run unit tests
-        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx --results-directory TestResults
+        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx --results-directory bmiUnitTestProject
      
       
       - name: List contents of the directory
@@ -46,7 +46,7 @@ jobs:
         with:
           artifact: ''
           name: MS Tests                  
-          path: 'bmiUnitTestProject/TestResults/*.trx'
+          path: 'bmiUnitTestProject/*.trx'
           reporter: 'dotnet-trx' 
           
       - name: Publish
