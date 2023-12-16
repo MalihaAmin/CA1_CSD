@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:                              #build job
-    runs-on: ubuntu-latest            #running on ubuntu
+    runs-on: windows-latest            
 
     steps:
       - uses: actions/checkout@v3     #checking out code
@@ -25,15 +25,15 @@ jobs:
         
        
        #install dependencies
-      #- name: Install dependencies      
-       # run: dotnet restore
+      - name: Install dependencies      
+        run: dotnet restore
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
         
         
       - name: Run unit tests
-        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx --verbosity detailed
+        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" --logger trx --verbosity detailed
      
       
       - name: List contents of the directory
