@@ -44,7 +44,7 @@ namespace BPCalculatorUnitTesting
         public void Test_Invalid()
         {
             // Test for invalid values
-            // if Systolic = 200 and Diastolic = 23, it should be 'NotValid'
+            // if Systolic = 200 and Diastolic = 23, it should be 'invalid'
             BloodPressure bp = new BloodPressure() { Systolic = 200, Diastolic = 23 };
             Assert.AreEqual(BPCategory.Invalid, bp.Category);
         }
