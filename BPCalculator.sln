@@ -9,6 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPUnitTestProject", "BPUnit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDD_Specflow_Test", "BDD_Specflow_Test\BDD_Specflow_Test.csproj", "{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{092D5A6B-CD0A-4E6A-A9A5-DEB51CCADD3C}"
+	ProjectSection(SolutionItems) = preProject
+		k6test.js = k6test.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
