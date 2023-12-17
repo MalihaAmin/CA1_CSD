@@ -4,7 +4,7 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPCalculator", "BPCalculator\BPCalculator.csproj", "{5966DA6C-819D-4303-ADC7-425B8541EC84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPCalculatorUnitTesting", "BPCalculatorUnitTesting\BPCalculatorUnitTesting.csproj", "{F75B8AF5-19E0-4741-ABED-7D7F60C83C17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bmiUnitTestProject", "\bmiUnitTestProject.csproj", "{F75B8AF5-19E0-4741-ABED-7D7F60C83C17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
