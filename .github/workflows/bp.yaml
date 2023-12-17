@@ -33,7 +33,16 @@ jobs:
         
         
       - name: Run unit tests
-        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore
+        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx
+
+      #publish unit test results
+      - name: Publish Unit Test Results
+        uses: dorny/test-reporter@v1
+        with:
+          artifact: ''
+          name: MS Tests                  
+          path: '**.trx'
+          reporter: 'dotnet-trx' 
      
           
       - name: Publish
