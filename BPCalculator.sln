@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPCalculator", "BPCalculator\BPCalculator.csproj", "{5966DA6C-819D-4303-ADC7-425B8541EC84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BPUnitTestProject", "BPUnitTestProject\BPUnitTestProject.csproj", "{2A2064E1-EE1E-4CBF-A2D7-557240456F9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPUnitTestProject", "BPUnitTestProject\BPUnitTestProject.csproj", "{2A2064E1-EE1E-4CBF-A2D7-557240456F9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDD_Specflow_Test", "BDD_Specflow_Test\BDD_Specflow_Test.csproj", "{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2A2064E1-EE1E-4CBF-A2D7-557240456F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A2064E1-EE1E-4CBF-A2D7-557240456F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A2064E1-EE1E-4CBF-A2D7-557240456F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
