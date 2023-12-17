@@ -50,9 +50,10 @@ namespace BPCalculator
                 {
                     return BPCategory.High;
                 }
-                else{
+                else
+                {
                     return BPCategory.Invalid;
-                }
+                }                     // replace this
             }
         }
     }
