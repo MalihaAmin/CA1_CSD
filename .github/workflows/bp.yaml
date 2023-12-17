@@ -55,7 +55,7 @@ jobs:
     - name: Sonarqube Begin
       run: | 
           dotnet tool install --global dotnet-sonarscanner
-          dotnet sonarscanner begin nner begin /k:"MalihaAmin_CA1_CSD" /o:"malihaamin" /d:sonar.token="${{ secrets.SON /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
+          dotnet sonarscanner begin nner begin /k:"MalihaAmin_CA1_CSD" /o:"malihaamin" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /s:$GITHUB_WORKSPACE/SonarQube.Analysis.xml
     - name: Build
       run: dotnet build
 
