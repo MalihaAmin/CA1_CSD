@@ -37,7 +37,7 @@ jobs:
      
 
       - name: Publish
-        run: dotnet publish BPCalculator -c Release -o ${{AZURE_WEBAPP_PACKAGE_PATH}}}
+        run: dotnet publish BPCalculator -c Release -o ${{ AZURE_WEBAPP_PACKAGE_PATH }}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
