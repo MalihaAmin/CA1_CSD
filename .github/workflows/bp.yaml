@@ -27,7 +27,7 @@ jobs:
       run: dotnet test BPUnitTestProject/BPUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx
 
     - name: Run SpecFlow tests
-      run: dotnet test BDD_SpecFlow_Test/BDD_SpecFlow_Test.csproj --no-restore --collect "Code coverage" -l:trx
+      run: dotnet test BDD_Specflow_Test/BDD_Specflow_Test --no-restore --collect "Code coverage" -l:trx
 
     - name: Publish
       run: dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
