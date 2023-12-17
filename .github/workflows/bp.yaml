@@ -1,7 +1,7 @@
 name: Build and deploy ASP.Net Core app to Azure Web App - bpprojectmaliha
 env:
   URI: https://bpprojectmaliha-dev.azurewebsites.net
-  AZURE_WEBAPP_PACKAGE_PATH: 'publish'
+  AZURE_WEBAPP_PACKAGE_PATH: 'BPCalculator/publish'
   AZURE_WEBAPP_NAME: bpprojectmaliha-dev
 on:
   push:
@@ -26,24 +26,24 @@ jobs:
        
        #install dependencies
       - name: Install dependencies      
-        run: dotnet restore
+        run: dotnet restore BPCalculator
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build BPCalculator --configuration Release
         
         
       - name: Run unit tests
-        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx
+        run: dotnet test BPCalculator bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" -l:trx
      
 
       - name: Publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
+        run: dotnet publish BPCalculator -c Release -o ${{AZURE_WEBAPP_PACKAGE_PATH}}}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: ${{ AZURE_WEBAPP_PACKAGE_PATH }}
 
   deploy:
     runs-on: windows-latest
@@ -58,4 +58,4 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_DEV }}
-        package: .
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
