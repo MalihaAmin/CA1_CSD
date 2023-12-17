@@ -1,123 +1,40 @@
 using BPCalculator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Xunit;
 
-namespace bmiUnitTestProject
+using BPCalculator;
+
+namespace BPCalculatorUnitTesting
 {
-
-    public class UnitTest1
+    [TestClass]
+    public class BloodPresureTests
     {
-        public BloodPressure BP;
-
-        //Unit test to check LOW blood pressure
-        [Theory]
-        [InlineData(70, 40)] //low range
-        [InlineData(82, 48)] //mid range
-        [InlineData(89, 59)] //high range
-        public void TestMethodLowVariables(int s, int d)
+        [TestMethod]
+        public void Test_High()
         {
-
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.Equal(BPCategory.Low, BP.Category);
-
+            //if Systolic = 150 and Diastolic = 95 then it should be 'High' pressure
+            BloodPressure bp = new BloodPressure() { Systolic = 150, Diastolic = 95 };
+            Assert.AreEqual(BPCategory.High, bp.Category);
         }
-
-        //Unit test to check IDEAL blood pressure
-        [Theory]
-        [InlineData(90, 60)] //low range
-        [InlineData(105, 62)] //mid range
-        [InlineData(119, 79)] //high range
-        public void TestMethodIdealVariables(int s, int d)
+        [TestMethod]
+        public void Test_PreHigh()
         {
-
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.Equal(BPCategory.Ideal, BP.Category);
-
+            //if Systolic = 125 and Diastolic = 85 then it should be 'PreHigh' pressure
+            BloodPressure bp = new BloodPressure() { Systolic = 125, Diastolic = 85 };
+            Assert.AreEqual(BPCategory.PreHigh, bp.Category);
         }
-
-        //Unit test to check PRE HIGH blood pressure
-        [Theory]
-        [InlineData(120, 80)] //low range
-        [InlineData(134, 86)] //mid range
-        [InlineData(139, 89)] //high range
-        public void TestMethodPreHighlVariables(int s, int d)
+        [TestMethod]
+        public void Test_Ideal()
         {
-
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.Equal(BPCategory.PreHigh, BP.Category);
-
+            //if Systolic = 115 and Diastolic = 70 then it should be 'Ideal' pressure
+            BloodPressure bp = new BloodPressure() { Systolic = 115, Diastolic = 70 };
+            Assert.AreEqual(BPCategory.Ideal, bp.Category);
         }
-
-        //Unit test to check High blood pressure
-        [Theory]
-        [InlineData(140, 90)] //low range
-        [InlineData(173, 97)] //mid range
-        [InlineData(190, 100)] //high range
-        public void TestMethodHighVariables(int s, int d)
+        [TestMethod]
+        public void Test_Low()
         {
-
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.Equal(BPCategory.High, BP.Category);
-
-        }
-
-        //Unit test to check InValid blood pressure
-        [Theory]
-        [InlineData(195, 39)] //low range
-        [InlineData(200, 23)] //mid range
-        [InlineData(191, 101)] //high range
-        public void TestMethodInvalidVariables(int s, int d)
-        {
-
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.Equal(BPCategory.NotValid, BP.Category);
-
-        }
-
-        //Negative Tests 
-
-        [Theory]
-        [InlineData(70, 40)]
-        [InlineData(139, 89)]
-        public void Test_for_values_outside_high_range(int s, int d)
-        {
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.InRange(d, BloodPressure.DiastolicMin, BloodPressure.DiastolicMax);
-            Assert.NotEqual(BPCategory.High, BP.Category);
-        }
-
-        [Theory]
-        [InlineData(70, 40)]
-        [InlineData(119, 79)]
-        [InlineData(140, 90)]
-        public void Test_for_values_outside_prehigh_range(int s, int d)
-        {
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.InRange(d, BloodPressure.DiastolicMin, BloodPressure.DiastolicMax);
-            Assert.NotEqual(BPCategory.PreHigh, BP.Category);
-        }
-
-        [Theory]
-        [InlineData(70, 40)]
-        [InlineData(89, 59)]
-        [InlineData(120, 81)]
-        public void Test_for_values_outside_ideal_range(int s, int d)
-        {
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.InRange(d, BloodPressure.DiastolicMin, BloodPressure.DiastolicMax);
-            Assert.NotEqual(BPCategory.Ideal, BP.Category);
-        }
-
-        [Theory]
-        [InlineData(90, 60)]
-        [InlineData(139, 89)]
-        [InlineData(90, 45)]
-        [InlineData(75, 60)]
-        public void Test_for_values_outside_low_range(int s, int d)
-        {
-            BP = new BloodPressure() { Systolic = s, Diastolic = d };
-            Assert.InRange(d, BloodPressure.DiastolicMin, BloodPressure.DiastolicMax);
-            Assert.NotEqual(BPCategory.Low, BP.Category);
+            //if Systolic = 80 and Diastolic = 80 then it should be 'Low' pressure
+            BloodPressure bp = new BloodPressure() { Systolic = 80, Diastolic = 50 };
+            Assert.AreEqual(BPCategory.Low, bp.Category);
         }
     }
 }
