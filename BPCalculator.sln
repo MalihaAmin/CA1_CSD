@@ -9,11 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPUnitTestProject", "BPUnit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDD_Specflow_Test", "BDD_Specflow_Test\BDD_Specflow_Test.csproj", "{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{30E32294-25CA-40A6-9DC2-DBF508AE0ED3}"
-	ProjectSection(SolutionItems) = preProject
-		SonarQube.Analysis.xml = SonarQube.Analysis.xml
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
