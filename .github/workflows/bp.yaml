@@ -16,12 +16,13 @@ jobs:
     runs-on: windows-latest            
 
     steps:
-      - uses: actions/checkout@v3     #checking out code
+      - uses: actions/checkout@v4     #checking out code
 
       - name: Set up .NET Core
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.0.x'
+          inclue-prerelease: true
         
        
        #install dependencies
@@ -33,24 +34,14 @@ jobs:
         
         
       - name: Run unit tests
-        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore --collect "Code coverage" --logger "trx;LogFileName=test-results.trx"
+        run: dotnet test bmiUnitTestProject/bmiUnitTestProject.csproj --no-restore
      
-      
-        #publish unit test results
-      - name: Publish Unit Test Results
-        uses: dorny/test-reporter@v1
-        with:
-          #artifact: ''
-          name: MS Tests                  
-          path: "**/test-results.trx"
-          reporter: 'dotnet-trx' 
-          fail-on-error: true
           
       - name: Publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
