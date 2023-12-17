@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPCalculator", "BPCalculato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BPUnitTestProject", "BPUnitTestProject\BPUnitTestProject.csproj", "{2A2064E1-EE1E-4CBF-A2D7-557240456F9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BDD_Specflow_Test", "BDD_Specflow_Test\BDD_Specflow_Test.csproj", "{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BDD_Specflow_Test", "BDD_Specflow_Test\BDD_Specflow_Test.csproj", "{91A6BD04-0F4C-4695-8FF8-C4C7C650D08E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{30E32294-25CA-40A6-9DC2-DBF508AE0ED3}"
+	ProjectSection(SolutionItems) = preProject
+		SonarQube.Analysis.xml = SonarQube.Analysis.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
