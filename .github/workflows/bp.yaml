@@ -13,7 +13,8 @@ on:
       - main
 
 jobs:
-  build:                                            # "build" job
+  build:
+    name: Build and Unit Testing 
     runs-on: ubuntu-latest                         # runner
     steps:
     - uses: actions/checkout@v3
@@ -40,7 +41,7 @@ jobs:
         path: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
 
   code_analysis:
-    name: Build and analyze - SonarCloud
+    name: Code analysis - SonarCloud
     needs: build
     runs-on: windows-latest
     steps:
